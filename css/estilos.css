@@ -67,11 +67,132 @@ main{
 }
 /***********************BARRA DE PUBLICACION  ******************/
 .contenedor{
-    background-color: var(--verdeSecundario);
-    padding: 20px;
+    background-color: transparent;
+    padding: 20px 0 0;
     position: relative;
     z-index: 998;
     border-radius: 0 0 10px 10px;
+}
+/* Seccion para el boton de agregar historias */
+.contenedor-btn-historias{
+    background-color: transparent;
+    min-width: 450px;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+.publicar-historia-btn{
+    background-color: var(--verdeSecundario);
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border-radius: 0 25px 25px 0;
+    z-index: 999;
+    left: 0;
+    top: calc(50% - 25px);
+    
+}
+.publicar-historia-btn .agregar-btn{
+    background-color: var(--verdePrincipal);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: scale(0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 100ms ease;
+}
+.publicar-historia-btn .agregar-btn:hover{
+    background-color: var(--verdeTerciario);
+}
+.publicar-historia-btn .agregar-btn:hover i{
+    color: var(--verdePrincipal);
+    transform: rotate(180deg);
+}
+.publicar-historia-btn .agregar-btn:active{
+    background-color: var(--verdeGlobos);
+}
+.publicar-historia-btn .agregar-btn i{
+    color: #fff;
+    font-size: 30px;
+    transition: transform 200ms ease;
+}
+/* Seccion de historias */
+.cards{
+    min-width: 450px;
+    max-width: 600px;
+    background-color: var(--verdeTerciario);
+    height: auto;
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap; /*Para que no de espacios por debajo*/
+    padding: 10px 10px 0 10px;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 0px 8px 11px -3px rgba(0,0,0,0.45);
+    transition: min-width 300ms ease;
+    position: relative;
+}
+.cards::-webkit-scrollbar{
+    display: none;
+}
+
+
+.cards .card{
+    width: 150px;
+    height: 100%; /*224px*/
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+.cards .card:hover img{
+    transform: scale(1.2);
+}
+.cards .card a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.cards .card img{
+    width: 100%;
+    height: 100%; /*auto*/
+    object-fit: cover;
+    transition: transform 300ms ease;
+    
+}
+.cards .card h4{
+    width: 100%;
+    font-weight: 300;
+    position: absolute;
+    padding: 50px 5px 0;
+    left: 0;
+    bottom: 0;
+    color: #fff;
+-webkit-box-shadow: inset 0px -28px 12px -6px rgba(0,0,0,0.6); 
+box-shadow: inset 0px -28px 12px -6px rgba(0,0,0,0.6);
+}
+/* Contenedor de publicar texto */
+.max-width.contenedor-publicar{
+    background-color: var(--verdeSecundario);
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 0 20px;
+    transition: min-width 300ms ease;
+}
+
+input{
+    border: 1px solid gray;
+    background-color: #eeeeee;
+    width: 260px;
+    height: 25px;
+    border-radius: 15px;
+    outline: none;
+    padding: 0 10px;
 }
 .contenedor #btn-publicar{
     background-color: #fff;
@@ -95,11 +216,13 @@ aside{
     background-color: var(--verdeSecundario);
     min-width: 250px;
     max-width: 350px;
-    height: 597px;
+    height: 557px;
     border-radius: 0 10px 10px 0;
     position: sticky;
     top: 60px;
     overflow: auto;
+    -webkit-box-shadow: -10px 5px 10px -4px rgba(0,0,0,0.46); 
+box-shadow: -10px 5px 10px -4px rgba(0,0,0,0.46);
 }
 aside::-webkit-scrollbar{
     width: 8px;
@@ -137,13 +260,16 @@ aside:hover::-webkit-scrollbar-thumb{
 
 }
 section{
-    margin:15px 25px;
+    margin:15px 30px;
     padding: 30px 15px;
     background-color: var(--verdeTerciario);
     font-size: 13px;
     border-radius: 10px;
     -webkit-box-shadow: 0px 5px 10px -4px rgba(0,0,0,0.46); 
 box-shadow: 0px 5px 10px -4px rgba(0,0,0,0.46);
+}
+section h3{
+    margin-bottom: 10px;
 }
 /*********************** Seccion de publicacione ************************/
 .contenedor-principal{
@@ -156,15 +282,7 @@ box-shadow: 0px 5px 10px -4px rgba(0,0,0,0.46);
     max-width: 600px;
     margin: 0 auto;
 }
-input{
-    border: 1px solid gray;
-    background-color: #eeeeee;
-    width: 260px;
-    height: 25px;
-    border-radius: 15px;
-    outline: none;
-    padding: 0 10px;
-}
+
 .publicacion{
     margin: 10px auto 0;
     background-color: var(--verdeSecundario);
@@ -223,9 +341,13 @@ input{
     }
 }
 
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 650px){
     body{
         /* background-color: rebeccapurple; */
+    }
+    .cards,
+    .contenedor-btn-historias{
+        min-width: 100%;
     }
     .contenedor-principal{
         min-width: 100%;
@@ -238,6 +360,7 @@ input{
         /* background-color: red; */
     }
     .max-width input{
+        margin-top: 10px;
         width: 100%;
         height: 30px;
     }

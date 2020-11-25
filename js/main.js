@@ -2,6 +2,23 @@ const
     $btnPubliciar= document.getElementById('btn-publicar'),
     $contenido = document.querySelector('#conten-public');
 
+// const $publicacion = document.createElement("div"),
+//     $parr = document.createElement("p");
+// console.log($contenido.children[0]);
+
+// Ejemplo de creacion de elementos hechos por Elias
+// $div.setAttribute("class","publicacion");
+// $div.appendChild($parr);
+// console.log($div);
+// $parr.innerHTML=`Hola`;
+// console.log($div);
+// $contenido.appendChild($div)
+
+
+// let template = `<div class="publicacion">
+// <p> ${$input.value}</p>
+// </div>`
+
 $btnPubliciar.addEventListener("click",(e)=>{
     const   $input = document.getElementById('input-text'),
             $inputText = $input.value;
