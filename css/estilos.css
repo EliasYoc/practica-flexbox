@@ -342,9 +342,6 @@ section h3{
 }
 
 @media only screen and (max-width: 650px){
-    body{
-        /* background-color: rebeccapurple; */
-    }
     .cards,
     .contenedor-btn-historias{
         min-width: 100%;
